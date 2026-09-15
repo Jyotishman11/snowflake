@@ -1,0 +1,5 @@
+Model: ridge linear regression (lambda=0.05)
+Train/test split: 80/20 chronological CSV order
+Test MAE: 7.042
+Test R²: 0.411
+Features exclude views, likes, comments, shares and watch time to limit target leakage.
