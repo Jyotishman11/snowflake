@@ -4,18 +4,18 @@
 
 ```mermaid
 flowchart TB
-    CAT[DIM_CATEGORY\nPK category_key\ncategory_name]
-    SUB[DIM_SUBCATEGORY\nPK subcategory_key\nsubcategory_name\nFK category_key]
-    DATE[DIM_DATE\nPK date_key\nfull_date\nyear\nmonth\nday]
-    GEO[DIM_GEOGRAPHY\nPK geography_key\nregion]
-    CH[DIM_CHANNEL\nPK channel_key\nchannel_type]
-    FACT[FACT_VIDEO_TRENDING\nPK trend_fact_key\nFK date_key\nFK geography_key\nFK channel_key\nFK subcategory_key\nviews | likes | comments | shares\nwatch_time | subscribers | ad_spend\ntitle_length | popularity_score]
+    CAT["DIM_CATEGORY<br/>PK: category_key<br/>category_name"]
+    SUB["DIM_SUBCATEGORY<br/>PK: subcategory_key<br/>subcategory_name<br/>FK: category_key"]
+    DATE["DIM_DATE<br/>PK: date_key<br/>full_date<br/>year<br/>month<br/>day"]
+    GEO["DIM_GEOGRAPHY<br/>PK: geography_key<br/>region"]
+    CH["DIM_CHANNEL<br/>PK: channel_key<br/>channel_type"]
+    FACT["FACT_VIDEO_TRENDING<br/>PK: trend_fact_key<br/>FK: date_key<br/>FK: geography_key<br/>FK: channel_key<br/>FK: subcategory_key<br/>Measures: views, likes, comments, shares<br/>watch_time, subscribers, ad_spend<br/>title_length, popularity_score"]
 
-    CAT -->|1:M| SUB
-    SUB -->|1:M| FACT
-    DATE -->|1:M| FACT
-    GEO -->|1:M| FACT
-    CH -->|1:M| FACT
+    CAT --> SUB
+    SUB --> FACT
+    DATE --> FACT
+    GEO --> FACT
+    CH --> FACT
 ```
 
 ## Snowflake Structure
